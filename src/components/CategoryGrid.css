@@ -1,0 +1,130 @@
+.category-section__intro {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border: 1px solid var(--line);
+  background: var(--line);
+  gap: 1px;
+}
+
+.category-card {
+  background: var(--paper);
+}
+
+.category-card__toggle {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 26px 24px;
+  color: inherit;
+}
+
+.category-card__icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--teal-tint);
+  color: var(--teal-deep);
+}
+
+.category-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.category-card__title {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.category-card__desc {
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+
+.category-card__value-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.semaforo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.semaforo-dot.dot-green { background: var(--status-green); }
+.semaforo-dot.dot-amber { background: var(--amber-data); }
+.semaforo-dot.dot-red { background: var(--status-red); }
+
+.category-card__value {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--teal-deep);
+}
+
+.category-card__corte {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.category-card__plus {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--line);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  transition: transform 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.category-card.is-open .category-card__plus {
+  transform: rotate(45deg);
+  color: var(--teal);
+  border-color: var(--teal);
+}
+
+.category-card__detail {
+  padding: 0 24px 24px 80px;
+  margin-top: -8px;
+}
+
+.category-card__detail p {
+  font-size: 13px;
+  color: var(--muted);
+  border-top: 1px dashed var(--line);
+  padding-top: 14px;
+  max-width: 46ch;
+}
+
+@media (max-width: 720px) {
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+  .category-card__detail {
+    padding-left: 24px;
+  }
+}

@@ -1,0 +1,214 @@
+/* ===========================================================
+   DESIGN TOKENS
+   Perfil Epidemiológico — Observatorio de Salud Pública
+
+   Misma paleta y lógica de "semáforo epidemiológico" del dashboard
+   hermano de este proyecto: reutiliza sus tokens de marca para que
+   ambos productos se lean como el mismo sistema. El ámbar de marca
+   (#ffb803) se mantiene para insignias de estado (siempre con
+   ícono + texto), y se añade --amber-data, una variante más oscura
+   usada únicamente como color de identidad en gráficos categóricos,
+   donde el contraste frente al fondo blanco importa más.
+   =========================================================== */
+
+:root {
+  --ink: #033148;
+  --ink-soft: #0d4863;
+  --paper: #ffffff;
+  --paper-raised: #ffffff;
+  --surface-muted: #eef6fa;
+  --line: #d7e6ee;
+
+  --teal: #2596be;
+  --teal-deep: #033148;
+  --teal-tint: #e3f2f8;
+
+  --status-green: #3f8f5c;
+  --status-amber: #ffb803;
+  --status-red: #c1452e;
+  --amber-data: #d7a233;
+  --violet-data: #6a4c93;
+
+  --muted: #4d6472;
+
+  /* Rampa secuencial (un solo tono, claro -> oscuro) para las barras
+     de rango de la sección comparativa. */
+  --seq-1: #eaf5fa;
+  --seq-2: #bfe2ee;
+  --seq-3: #8ccbe0;
+  --seq-4: #4fadd0;
+  --seq-5: #2596be;
+  --seq-6: #0f6f92;
+  --seq-7: #033148;
+
+  --font-display: 'Albert Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Albert Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Albert Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --content-width: 1180px;
+  --gutter: clamp(20px, 5vw, 64px);
+  --radius: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.12;
+  margin: 0;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+}
+
+img, svg {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+
+.container {
+  max-width: var(--content-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--teal);
+  display: inline-flex;
+  align-items: center;
+}
+
+.semaforo {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.semaforo span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.semaforo .dot-green { background: var(--status-green); }
+.semaforo .dot-amber { background: var(--status-amber); }
+.semaforo .dot-red { background: var(--status-red); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  padding: 13px 22px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  background: none;
+}
+
+.btn-primary {
+  background: var(--teal);
+  color: var(--paper);
+}
+
+.btn-primary:hover {
+  background: var(--teal-deep);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.btn-ghost:hover {
+  border-color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  border-color: var(--teal);
+  color: var(--teal);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--teal);
+  color: var(--paper);
+}
+
+section {
+  padding-block: clamp(56px, 8vw, 108px);
+}
+
+.section-head {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 720px;
+  margin-bottom: clamp(32px, 5vw, 56px);
+}
+
+.section-head h2 {
+  font-size: clamp(28px, 3.4vw, 42px);
+}
