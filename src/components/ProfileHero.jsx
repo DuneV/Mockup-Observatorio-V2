@@ -1,5 +1,6 @@
 import { profileMeta, biologicos, coverageByTerritory, coverageStatus, lowerLabel } from '../data/profileData'
 import Icon from './icons'
+import heroBanner from '../assets/banner.jpg'
 import './ProfileHero.css'
 
 export default function ProfileHero({ selectedId, onChange }) {
@@ -11,7 +12,10 @@ export default function ProfileHero({ selectedId, onChange }) {
 
   return (
     <section id="perfil" className="profile-hero">
-      <div className="container">
+      <img className="profile-hero__bg" src={heroBanner} alt="" aria-hidden="true" />
+      <span className="profile-hero__overlay" aria-hidden="true" />
+
+      <div className="container profile-hero__inner">
         <nav className="profile-hero__crumbs" aria-label="Ruta de navegación">
           {profileMeta.breadcrumb.map((step, i) => (
             <span key={step}>
@@ -23,12 +27,12 @@ export default function ProfileHero({ selectedId, onChange }) {
 
         <div className="profile-hero__top">
           <div>
-            <span className="eyebrow">Perfil epidemiológico</span>
+            <span className="eyebrow eyebrow--on-dark">Perfil epidemiológico</span>
             <h1 className="profile-hero__title">{selected.label}</h1>
             <p className="profile-hero__subtitle">{profileMeta.subtitle}</p>
           </div>
           <div className="profile-hero__actions">
-            <a className="btn btn-ghost" href="#comparativo">
+            <a className="btn btn-ghost btn-ghost--on-dark" href="#comparativo">
               Ver metodología
             </a>
             <button type="button" className="btn btn-primary">
